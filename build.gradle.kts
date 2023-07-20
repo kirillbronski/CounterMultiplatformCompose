@@ -1,6 +1,7 @@
 buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.0.2")
+        classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.17.3")
     }
 }
 plugins {
@@ -13,7 +14,10 @@ plugins {
     id("com.android.application").apply(false)
     id("com.android.library").apply(false)
     id("org.jetbrains.compose").apply(false)
+}
 
+allprojects {
+    apply(plugin = "kotlinx-atomicfu")
 }
 
 tasks.register("clean", Delete::class) {
